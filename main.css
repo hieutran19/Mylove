@@ -9,7 +9,6 @@
     /* for touch screen */
     touch-action: none; 
   }
-  
   body {
     overflow: hidden;
     display: -webkit-box;

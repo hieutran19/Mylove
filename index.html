@@ -14,6 +14,7 @@
 </head>
 
 <body>
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js"></script>
 
   <div id="drag-container">
     <div id="spin-container">
@@ -39,6 +40,28 @@
   </div>
   <audio src="./music.mp3" autoplay loop></audio>
   <script src="main.js"></script>
+  <script>
+    // Hàm tạo pháo hoa rơi nhẹ nhàng
+    (function confettiFalling() {
+      const duration = Infinity;
+      const end = Date.now() + duration;
+
+      (function frame() {
+        // tạo hiệu ứng confetti rơi từ nhiều vị trí ngẫu nhiên
+        confetti({
+          particleCount: 5,
+          angle: 90,
+          spread: 70,
+          origin: { x: Math.random(), y: 0 },
+          colors: ['#ff5f6d', '#ffc371', '#ff9a9e', '#fad0c4', '#fbc2eb']
+        });
+        if (Date.now() < end) {
+          requestAnimationFrame(frame);
+        }
+      })();
+    })();
+  </script>
+
 </body>
 
 </html>
